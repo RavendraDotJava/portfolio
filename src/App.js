@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Card from 'react-bootstrap/Card';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
 import ParticlesComponent from './ParticlesComponent';
@@ -44,9 +45,13 @@ function App() {
             <img src={logo} style={{width:'50px',borderRadius:'50%',height:'50px',marginRight:'5px'}}  ></img>
             Ravendra</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link onClick={scrolltoview} >Projects</Nav.Link>
-            <Nav.Link href="#_">Contact</Nav.Link>
+          <NavDropdown title="Contact Info" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="mailto:rp7098979@gmail.com">Rp7098979@gmail.com</NavDropdown.Item>
+              <NavDropdown.Item href="tel:7898244625">7898244625</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="https://github.com/RavendraDotJava" target='_blank'>GitHub</NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link ></Nav.Link>
           </Nav>
         </Container>
       </Navbar>
