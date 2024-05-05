@@ -2,12 +2,35 @@
 import './App.css';
 import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, Sticky, StickyIn, StickyOut, Zoom, ZoomIn, ZoomOut } from "react-scroll-motion";
 import ParticlesComponent from './ParticlesComponent';
+import { useEffect, useState } from 'react';
+import LoadingBar from 'react-top-loading-bar'
 function App() {
+  const [Data,setData]=useState(null);
   const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
   const FadeUp = batch(Fade(), Move(), Sticky());
+  const [progress, setProgress] = useState(0)
+  
+  
+  useEffect(()=>{
+    console.log("loaded");
+    setData('loaded')
+    for (let i = 0; i <= 100; i++) {
+      
+        setProgress(i);
+      
+    }
+  },[])
   return (
     <>
-    <ParticlesComponent id="particles" />
+    <div>
+      <LoadingBar
+        color='#f11946'
+        height={'5px'}
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
+    </div>
+    <ParticlesComponent id="particles" /> 
     <ScrollContainer>
     
       <ScrollPage>
